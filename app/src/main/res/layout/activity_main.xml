@@ -1,103 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/Page">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        style="@style/Header">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <TextView
-            style="@style/Welcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome"
-            />
-
-        <TextView
-            style="@style/Description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/intro1"
-            />
-
-        <TextView
-            style="@style/Description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/intro2"/>
-    </LinearLayout>
-
-    <RelativeLayout
-        style="@style/Bottom"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/nameQuestion"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
-            android:textColor="#ffff"
-            android:text="@string/nameQuestion"/>
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editName"
-            android:layout_below="@id/nameQuestion"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/hintName"
-            android:layout_marginBottom="24dp"
-            android:textColorHint="?attr/colorPrimaryDark"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:id="@+id/border1"
-            android:layout_below="@id/editName"
-            android:layout_marginBottom="8dp"
-            android:background="?attr/colorPrimary" />
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/readyGo"
-            android:layout_below="@id/border1">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ready"
-                android:textColor="?attr/colorPrimaryDark"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentTop="true"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                android:text="@string/ready" />
+                android:orientation="vertical"
+                android:layout_weight="0"
+                style="@style/Header">
 
-            <Button
+                <TextView
+                    style="@style/Welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome"
+                    />
+
+                <TextView
+                    style="@style/Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intro1"
+                    />
+
+                <TextView
+                    style="@style/Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intro2"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:id="@+id/border1"
+                    android:gravity="center|bottom"
+                    android:background="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <RelativeLayout
+                style="@style/Bottom"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/go"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:text="@string/go"
-                android:background = "@drawable/roundedbutton"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_below="@id/ready"
-                android:layout_centerHorizontal="true"/>
+                android:layout_weight="0"
+                android:gravity="center|bottom">
 
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameQuestion"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:textColor="#ffff"
+                    android:text="@string/nameQuestion"/>
 
-    </RelativeLayout>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editName"
+                    android:layout_below="@id/nameQuestion"
+                    android:layout_centerHorizontal="true"
+                    android:hint="@string/hintName"
+                    android:layout_marginBottom="24dp"
+                    android:textColorHint="?attr/colorPrimaryDark"/>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:id="@+id/border2"
+                    android:layout_below="@id/editName"
+                    android:layout_marginBottom="8dp"
+                    android:background="?attr/colorPrimary" />
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/readyGo"
+                    android:layout_below="@id/border2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ready"
+                        android:textColor="?attr/colorPrimaryDark"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:text="@string/ready" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/go"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp"
+                        android:text="@string/go"
+                        android:background = "@drawable/roundedbutton"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_below="@id/ready"
+                        android:layout_centerHorizontal="true"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 </RelativeLayout>
