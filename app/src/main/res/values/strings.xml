@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Quantum Physics Quiz</string>
+    <string name="welcome">Welcome!</string>
+    <string name="intro1">How much do you know about the building blocks of life, the universe and everything?</string>
+    <string name="intro2">Take this Quiz to see if you can separate your muons from your mesons.</string>
+    <string name="nameQuestion">So before starting, what is your name?</string>
+    <string name="hintName">John Doe</string>
+    <string name="ready">Ready?</string>
+    <string name="go">GO!</string>
+
+
+</resources>
