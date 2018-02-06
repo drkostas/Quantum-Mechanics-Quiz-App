@@ -73,11 +73,11 @@
     <string name="q8a3">Cosmology microphysics biophysical radiophysics</string>
     <string name="q8a4">Cosmic megawatt baryonic revolutions</string>
     <string name="q8a5">Cold microscopic barium radius</string>
-    <string name="q9a1">Quarks</string>
-    <string name="q9a2">Gluons</string>
-    <string name="q9a3">Photons</string>
-    <string name="q9a4">Gravitons</string>
-    <string name="q9a5">Electrons</string>
-    <string name="q9a6">Muons</string>
+    <string name="q9a1">Photons</string>
+    <string name="q9a2">Quarks</string>
+    <string name="q9a3">Gravitons</string>
+    <string name="q9a4">Electrons</string>
+    <string name="q9a5">Muons</string>
+    <string name="q9a6">Gluons</string>
 
 </resources>
