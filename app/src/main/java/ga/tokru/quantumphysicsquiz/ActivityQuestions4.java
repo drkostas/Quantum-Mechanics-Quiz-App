@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class ActivityQuestions4 extends MainActivity {
     private Button btnSubmit;
@@ -84,69 +85,61 @@ public class ActivityQuestions4 extends MainActivity {
                 catch (Exception e){
                     Log.v("Exception ", "!!!");
                 }
-
-                Log.v("submissions ",playerName);
-                Log.v("submissions ",MainActivity.submission1);
-                Log.v("submissions ",MainActivity.submission2a);
-                Log.v("submissions ",MainActivity.submission2b);
-                Log.v("submissions ",MainActivity.submission3);
-                Log.v("submissions ",MainActivity.submission4a);
-                Log.v("submissions ",MainActivity.submission4b);
-                Log.v("submissions ",MainActivity.submission4c);
-                Log.v("submissions ",MainActivity.submission5);
-                Log.v("submissions ",MainActivity.submission6);
-                Log.v("submissions ",MainActivity.submission7);
-                Log.v("submissions ",MainActivity.submission8);
-                Log.v("submissions ",MainActivity.submission9a);
-                Log.v("submissions ",MainActivity.submission9b);
-                Log.v("submissions ",MainActivity.submission10);
                 int score = calculateScore();
-                Log.v("Score ", Integer.toString(score));
+                String prefix;
+                if (score>7){
+                    prefix = "Congratulations";
+                }
+                else if (score>4){
+                    prefix = "Not bad";
+                }
+                else{
+                    prefix = "Your brain's particles are fuzzy";
+                }
+                showToast(score, prefix);
+
             }
         }
     };
+
+    public void showToast(int score, String prefix){
+        String show = prefix + " " + MainActivity.playerName + "!\n";
+        show += "You did " + Integer.toString(score) + "/10.";
+        Toast.makeText(ActivityQuestions4.this, show,
+                Toast.LENGTH_LONG).show();
+    }
 
     public int calculateScore(){
         int correct = 0;
         if (MainActivity.submission1.equals(this.answer1)){
             correct += 1;
-            Log.v("Checking ", "1");
         }
         if (MainActivity.submission2a.equals(this.answer2a) && MainActivity.submission2b.equals(this.answer2b)){
             correct += 1;
-            Log.v("Checking ", "2");
         }
         if (MainActivity.submission3.equals(this.answer3)){
             correct += 1;
-            Log.v("Checking ", "3");
         }
         if (MainActivity.submission4a.equals(this.answer4a) && MainActivity.submission4b.equals(this.answer4b) && MainActivity.submission4c.equals(this.answer4c)){
             correct += 1;
-            Log.v("Checking ", "4");
         }
         if (MainActivity.submission5.equals(this.answer5)){
             correct += 1;
-            Log.v("Checking ", "5");
         }
         if (MainActivity.submission6.equals(this.answer6)){
             correct += 1;
-            Log.v("Checking ", "6");
         }
         if (MainActivity.submission7.equals(this.answer7)){
             correct += 1;
-            Log.v("Checking ", "7");
         }
         if (MainActivity.submission8.equals(this.answer8)){
             correct += 1;
-            Log.v("Checking ", "8");
         }
         if (MainActivity.submission9a.equals(this.answer9a) && MainActivity.submission9b.equals(this.answer9b)){
             correct += 1;
-            Log.v("Checking ", "9");
         }
         if (MainActivity.submission10.equals(this.answer10)){
             correct += 1;
-            Log.v("Checking ", "10");
         }
         return correct;
     }
