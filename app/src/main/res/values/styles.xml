@@ -16,6 +16,8 @@
 
     <style name="Page" parent="AppTheme">
         <item name="android:background">@drawable/wp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
     <style name="Header" parent="AppTheme">
