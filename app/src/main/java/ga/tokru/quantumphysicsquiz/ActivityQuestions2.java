@@ -12,15 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-public class ActivityQuestions1 extends MainActivity {
+public class ActivityQuestions2 extends MainActivity {
     private Button btnNext;
     private RadioGroup answerGroup1;
     private LinearLayout answerGroup2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions1);
-        setTitle("Questions 1-2");
+        setContentView(R.layout.activity_questions2);
+        setTitle("Questions 3-4");
         btnNext = (Button) findViewById(R.id.next);
         btnNext.setOnClickListener(handler);
         answerGroup1 = (RadioGroup) findViewById(R.id.answerGroup1);
@@ -32,32 +32,38 @@ public class ActivityQuestions1 extends MainActivity {
             if(v==btnNext){
                 int answer1id = answerGroup1.getCheckedRadioButtonId();
                 RadioButton answer1View = (RadioButton) findViewById(answer1id);
-                submission1 = answer1View.getText().toString();
-                Log.v("Submission1 ", submission1);
+                submission3 = answer1View.getText().toString();
+                Log.v("Submission3 ", submission3);
                 int numOfCheckBoxes = answerGroup2.getChildCount();
                 int found = 0;
                 for (int i = 0; i < numOfCheckBoxes; i++) {
                     CheckBox checkBoxView = (CheckBox) answerGroup2.getChildAt(i);
                     if (checkBoxView.isChecked()) {
                         if (found<1){
-                            submission2a = checkBoxView.getText().toString();
-                            Log.v("Submission2a ", submission2a);
+                            submission4a = checkBoxView.getText().toString();
+                            Log.v("submission4a ", submission4a);
                             found += 1;
                         }
                         else if (found<2){
-                            submission2b = checkBoxView.getText().toString();
-                            Log.v("Submission2b ", submission2b);
+                            submission4b = checkBoxView.getText().toString();
+                            Log.v("submission4b ", submission4b);
+                            found += 1;
+                        }
+                        else if (found<3){
+                            submission4c = checkBoxView.getText().toString();
+                            Log.v("submission4c ", submission4c);
                             found += 1;
                         }
                         else{
-                            submission2a = "";
-                            submission2b = "";
+                            submission4a = "";
+                            submission4b = "";
+                            submission4c = "";
                             Log.v("Submissions Erased! ", "Selected More");
                         }
                     }
                 }
-                Intent myIntent = new Intent(ActivityQuestions1.this, ActivityQuestions2.class);
-                ActivityQuestions1.this.startActivity(myIntent);
+                Intent myIntent = new Intent(ActivityQuestions2.this, ActivityQuestions3.class);
+                ActivityQuestions2.this.startActivity(myIntent);
             }
         }
     };
