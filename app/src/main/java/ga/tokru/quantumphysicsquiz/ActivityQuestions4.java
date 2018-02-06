@@ -20,8 +20,9 @@ import android.widget.Toast;
 
 public class ActivityQuestions4 extends MainActivity {
     private Button btnSubmit;
-    private RadioGroup answerGroup1;
-    private LinearLayout answerGroup2;
+    private RadioGroup answerGroup1; // This is the first Group in this activity with avariable answers.
+    private LinearLayout answerGroup2; // This is the second Group in this activity with avariable answers.
+    // These variables are the correct answers that will be cross checked with the answers of the user.
     public String answer1 = "Things having mass";
     public String answer2a = "The position";
     public String answer2b = "The momentum";
@@ -41,60 +42,59 @@ public class ActivityQuestions4 extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions4);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        setTitle("Questions 8-10");
+        setTitle("Questions 8-10"); // Changes the title of the activity.
         btnSubmit = (Button) findViewById(R.id.submit);
-        btnSubmit.setOnClickListener(handler);
+        btnSubmit.setOnClickListener(handler); // Click listener for the button Submit.
         answerGroup1 = (RadioGroup) findViewById(R.id.answerGroup1);
         answerGroup2 = (LinearLayout) findViewById(R.id.answerGroup2);
-        View pageView = findViewById(R.id.page);
-        setupParent(pageView);
+        View pageView = findViewById(R.id.page); // This is the view that contains the whole actvity.
+        setupParent(pageView); // A function that sets a listener which will close the keyboard whenever the user clicks outside the EditText.
     }
 
     View.OnClickListener handler = new View.OnClickListener(){
         public void onClick(View v) {
             if(v==btnSubmit){
+                // Take the value of the selected radio button and submit it, if exists.
                 try{
                     int answer1id = answerGroup1.getCheckedRadioButtonId();
                     RadioButton answer1View = (RadioButton) findViewById(answer1id);
                     MainActivity.submission8 = answer1View.getText().toString();
-                    Log.v("submission8 ", MainActivity.submission8);
+                    // Log.v("submission8 ", MainActivity.submission8);
                 }
                 catch(Exception e){
                     Log.v("Error", "No Radio Button Checked.");
                 }
-                int numOfCheckBoxes = answerGroup2.getChildCount();
+
+                // Take the value of the selected Check Boxes them.
+                int numOfCheckBoxes = answerGroup2.getChildCount(); // How many children(CheckBoxes) does this view have?
                 int found = 0;
-                for (int i = 0; i < numOfCheckBoxes; i++) {
+                for (int i = 0; i < numOfCheckBoxes; i++) { // Iterate in CheckBoxes
                     CheckBox checkBoxView = (CheckBox) answerGroup2.getChildAt(i);
-                    if (checkBoxView.isChecked()) {
+                    if (checkBoxView.isChecked()) { // If Checkbox is checked, submit the answers and erase them if he checked more.
                         if (found<1){
                             MainActivity.submission9a = checkBoxView.getText().toString();
-                            Log.v("submission9a ", MainActivity.submission9a);
+                            // Log.v("submission9a ", MainActivity.submission9a);
                             found += 1;
                         }
                         else if (found<2){
                             MainActivity.submission9b = checkBoxView.getText().toString();
-                            Log.v("submission9b ", MainActivity.submission9b);
+                            // Log.v("submission9b ", MainActivity.submission9b);
                             found += 1;
                         }
                         else{
                             MainActivity.submission9a = "";
                             MainActivity.submission9b = "";
-                            Log.v("Submissions Erased! ", "Selected More");
+                            // Log.v("Submissions Erased! ", "Selected More");
                         }
                     }
                 }
+
+                // Take the value of the EditText and submit it.
                 EditText answer3View = (EditText) findViewById(R.id.answer3);
                 MainActivity.submission10 = answer3View.getText().toString();
-                Log.v("submission10 ", MainActivity.submission10);
-                try{
-                    Log.v("submission1 ", MainActivity.submission1);
-                }
-                catch (Exception e){
-                    Log.v("Exception ", "!!!");
-                }
-                int score = calculateScore();
-                String prefix;
+                // Log.v("submission10 ", MainActivity.submission10);
+                int score = calculateScore(); // Calculate the score/
+                String prefix; // Change the prefix depending on the score.
                 if (score>7){
                     prefix = "Congratulations";
                 }
@@ -104,8 +104,7 @@ public class ActivityQuestions4 extends MainActivity {
                 else{
                     prefix = "Your brain's particles are fuzzy";
                 }
-                showToast(score, prefix);
-
+                showToast(score, prefix); // Show a toast message to the use with the score.
             }
         }
     };
@@ -117,7 +116,7 @@ public class ActivityQuestions4 extends MainActivity {
                 Toast.LENGTH_LONG).show();
     }
 
-    public int calculateScore(){
+    public int calculateScore(){ // Cross check the user's answers with the correct ones and count them.
         int correct = 0;
         if (MainActivity.submission1.equals(this.answer1)){
             correct += 1;

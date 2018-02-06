@@ -18,50 +18,56 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class ActivityQuestions3 extends MainActivity {
-    private Button btnNext;
-    private RadioGroup answerGroup2;
-    private RadioGroup answerGroup3;
+    private Button btnNext; // The Button that Calls  the next Activity.
+    private RadioGroup answerGroup2; // This is the second Group in this activity with avariable answers.
+    private RadioGroup answerGroup3; // This is the third Group in this activity with avariable answers.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions3);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        setTitle("Questions 5-7");
+        setTitle("Questions 5-7"); // Changes the title of the activity.
         btnNext = (Button) findViewById(R.id.next);
-        btnNext.setOnClickListener(handler);
+        btnNext.setOnClickListener(handler); // Click listener for the button Next.
         answerGroup2 = (RadioGroup) findViewById(R.id.answerGroup2);
         answerGroup3 = (RadioGroup) findViewById(R.id.answerGroup3);
-        View pageView = findViewById(R.id.page);
-        setupParent(pageView);
+        View pageView = findViewById(R.id.page); // This is the view that contains the whole actvity.
+        setupParent(pageView); // A function that sets a listener which will close the keyboard whenever the user clicks outside the EditText.
     }
 
     View.OnClickListener handler = new View.OnClickListener(){
         public void onClick(View v) {
             if(v==btnNext){
+                // Take the value of the EditText and submit it.
                 EditText answer1View = (EditText) findViewById(R.id.answer1);
                 MainActivity.submission5 = answer1View.getText().toString();
-                Log.v("submission5 ", MainActivity.submission5);
+                // Log.v("submission5 ", MainActivity.submission5);
+
+                // Take the value of the selected radio button and submit it, if exists.
                 try {
                     int answer2id = answerGroup2.getCheckedRadioButtonId();
                     RadioButton answer2View = (RadioButton) findViewById(answer2id);
                     MainActivity.submission6 = answer2View.getText().toString();
-                    Log.v("submission6 ", MainActivity.submission6);
+                    // Log.v("submission6 ", MainActivity.submission6);
                 }
                 catch(Exception e){
-                    Log.v("Error", "No Radio Button Checked.");
+                    // Log.v("Error", "No Radio Button Checked.");
                 }
+
+                // Take the value of the selected radio button and submit it, if exists.
                 try{
                     int answer3id = answerGroup3.getCheckedRadioButtonId();
                     RadioButton answer3View = (RadioButton) findViewById(answer3id);
                     MainActivity.submission7 = answer3View.getText().toString();
-                    Log.v("submission7 ", MainActivity.submission7);
+                    // Log.v("submission7 ", MainActivity.submission7);
                 }
                 catch(Exception e){
                     Log.v("Error", "No Radio Button Checked.");
                 }
 
+                // Change Activity
                 Intent myIntent = new Intent(ActivityQuestions3.this, ActivityQuestions4.class);
-                ActivityQuestions3.this.startActivity(myIntent);
+                ActivityQuestions3.this.startActivity(myIntent); // Calls the Fourth Activity with the Questions.
             }
         }
     };
@@ -89,5 +95,4 @@ public class ActivityQuestions3 extends MainActivity {
         InputMethodManager inputMethodManager = (InputMethodManager) ActivityQuestions3.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(ActivityQuestions3.this.getCurrentFocus().getWindowToken(), 0);
     }
-
 }
