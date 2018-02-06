@@ -26,6 +26,20 @@ public class MainActivity extends AppCompatActivity {
     public String answer9a = "Quarks";
     public String answer9b = "Gluons";
     public String answer10 = "big bang";
+    public String submission1;
+    public String submission2a;
+    public String submission2b;
+    public String submission3;
+    public String submission4a;
+    public String submission4b;
+    public String submission4c;
+    public String submission5;
+    public String submission6;
+    public String submission7;
+    public String submission8;
+    public String submission9a;
+    public String submission9b;
+    public String submission10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -23,6 +23,13 @@
         <item name="android:background">#d7718792</item>
     </style>
 
+    <style name="QuestionSection" parent="AppTheme">
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:background">#d7718792</item>
+    </style>
+
     <style name="Bottom" parent="AppTheme">
         <item name="android:padding">12dp</item>
         <item name="android:background">#d7718792</item>
@@ -35,11 +42,40 @@
         <item name="android:textStyle">italic</item>
     </style>
 
+    <style name="Question" parent="AppTheme">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/colorPrimaryDark</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textStyle">italic|bold</item>
+    </style>
+
     <style name="Welcome" parent="AppTheme">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="QuestionTitle" parent="AppTheme">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="radioButtons" parent="AppTheme">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="nextButtons" parent="AppTheme">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:text">@string/next</item>
+        <item name="android:background">@drawable/roundedbutton</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
 </resources>
