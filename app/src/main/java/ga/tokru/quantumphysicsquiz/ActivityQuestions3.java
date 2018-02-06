@@ -31,16 +31,27 @@ public class ActivityQuestions3 extends MainActivity {
         public void onClick(View v) {
             if(v==btnNext){
                 EditText answer1View = (EditText) findViewById(R.id.answer1);
-                submission5 = answer1View.getText().toString();
-                Log.v("submission5 ", submission5);
-                int answer2id = answerGroup2.getCheckedRadioButtonId();
-                RadioButton answer2View = (RadioButton) findViewById(answer2id);
-                submission6 = answer2View.getText().toString();
-                Log.v("submission6 ", submission6);
-                int answer3id = answerGroup3.getCheckedRadioButtonId();
-                RadioButton answer3View = (RadioButton) findViewById(answer3id);
-                submission7 = answer3View.getText().toString();
-                Log.v("submission7 ", submission7);
+                MainActivity.submission5 = answer1View.getText().toString();
+                Log.v("submission5 ", MainActivity.submission5);
+                try {
+                    int answer2id = answerGroup2.getCheckedRadioButtonId();
+                    RadioButton answer2View = (RadioButton) findViewById(answer2id);
+                    MainActivity.submission6 = answer2View.getText().toString();
+                    Log.v("submission6 ", MainActivity.submission6);
+                }
+                catch(Exception e){
+                    Log.v("Error", "No Radio Button Checked.");
+                }
+                try{
+                    int answer3id = answerGroup3.getCheckedRadioButtonId();
+                    RadioButton answer3View = (RadioButton) findViewById(answer3id);
+                    MainActivity.submission7 = answer3View.getText().toString();
+                    Log.v("submission7 ", MainActivity.submission7);
+                }
+                catch(Exception e){
+                    Log.v("Error", "No Radio Button Checked.");
+                }
+
                 Intent myIntent = new Intent(ActivityQuestions3.this, ActivityQuestions4.class);
                 ActivityQuestions3.this.startActivity(myIntent);
             }

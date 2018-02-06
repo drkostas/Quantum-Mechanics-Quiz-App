@@ -30,34 +30,39 @@ public class ActivityQuestions2 extends MainActivity {
     View.OnClickListener handler = new View.OnClickListener(){
         public void onClick(View v) {
             if(v==btnNext){
-                int answer1id = answerGroup1.getCheckedRadioButtonId();
-                RadioButton answer1View = (RadioButton) findViewById(answer1id);
-                submission3 = answer1View.getText().toString();
-                Log.v("Submission3 ", submission3);
+                try {
+                    int answer1id = answerGroup1.getCheckedRadioButtonId();
+                    RadioButton answer1View = (RadioButton) findViewById(answer1id);
+                    MainActivity.submission3 = answer1View.getText().toString();
+                    Log.v("Submission3 ", MainActivity.submission3);
+                }
+                catch(Exception e){
+                    Log.v("Error", "No Radio Button Checked.");
+                }
                 int numOfCheckBoxes = answerGroup2.getChildCount();
                 int found = 0;
                 for (int i = 0; i < numOfCheckBoxes; i++) {
                     CheckBox checkBoxView = (CheckBox) answerGroup2.getChildAt(i);
                     if (checkBoxView.isChecked()) {
                         if (found<1){
-                            submission4a = checkBoxView.getText().toString();
-                            Log.v("submission4a ", submission4a);
+                            MainActivity.submission4a = checkBoxView.getText().toString();
+                            Log.v("submission4a ", MainActivity.submission4a);
                             found += 1;
                         }
                         else if (found<2){
-                            submission4b = checkBoxView.getText().toString();
-                            Log.v("submission4b ", submission4b);
+                            MainActivity.submission4b = checkBoxView.getText().toString();
+                            Log.v("submission4b ", MainActivity.submission4b);
                             found += 1;
                         }
                         else if (found<3){
-                            submission4c = checkBoxView.getText().toString();
-                            Log.v("submission4c ", submission4c);
+                            MainActivity.submission4c = checkBoxView.getText().toString();
+                            Log.v("submission4c ", MainActivity.submission4c);
                             found += 1;
                         }
                         else{
-                            submission4a = "";
-                            submission4b = "";
-                            submission4c = "";
+                            MainActivity.submission4a = "";
+                            MainActivity.submission4b = "";
+                            MainActivity.submission4c = "";
                             Log.v("Submissions Erased! ", "Selected More");
                         }
                     }

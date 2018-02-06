@@ -30,28 +30,34 @@ public class ActivityQuestions1 extends MainActivity {
     View.OnClickListener handler = new View.OnClickListener(){
         public void onClick(View v) {
             if(v==btnNext){
-                int answer1id = answerGroup1.getCheckedRadioButtonId();
-                RadioButton answer1View = (RadioButton) findViewById(answer1id);
-                submission1 = answer1View.getText().toString();
-                Log.v("Submission1 ", submission1);
+                try {
+                    int answer1id = answerGroup1.getCheckedRadioButtonId();
+                    RadioButton answer1View = (RadioButton) findViewById(answer1id);
+                    MainActivity.submission1 = answer1View.getText().toString();
+                    Log.v("Submission1 ", MainActivity.submission1);
+                }
+                catch(Exception e){
+                    Log.v("Error", "No Radio Button Checked.");
+                }
+
                 int numOfCheckBoxes = answerGroup2.getChildCount();
                 int found = 0;
                 for (int i = 0; i < numOfCheckBoxes; i++) {
                     CheckBox checkBoxView = (CheckBox) answerGroup2.getChildAt(i);
                     if (checkBoxView.isChecked()) {
                         if (found<1){
-                            submission2a = checkBoxView.getText().toString();
+                            MainActivity.submission2a = checkBoxView.getText().toString();
                             Log.v("Submission2a ", submission2a);
                             found += 1;
                         }
                         else if (found<2){
-                            submission2b = checkBoxView.getText().toString();
-                            Log.v("Submission2b ", submission2b);
+                            MainActivity.submission2b = checkBoxView.getText().toString();
+                            Log.v("Submission2b ", MainActivity.submission2b);
                             found += 1;
                         }
                         else{
-                            submission2a = "";
-                            submission2b = "";
+                            MainActivity.submission2a = "";
+                            MainActivity.submission2b = "";
                             Log.v("Submissions Erased! ", "Selected More");
                         }
                     }

@@ -11,35 +11,21 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     Button btnGo;
     EditText nameView;
-    public String playerName;
-    public String answer1 = "Things having mass";
-    public String answer2a = "position";
-    public String answer2b = "momentum";
-    public String answer3 = "Top quark";
-    public String answer4a = "Tau";
-    public String answer4b = "Muon";
-    public String answer4c = "Electron";
-    public String answer5 = "fusion";
-    public String answer6 = "Graviton";
-    public String answer7 = "None";
-    public String answer8 = "Cosmic microwave background radiation";
-    public String answer9a = "Quarks";
-    public String answer9b = "Gluons";
-    public String answer10 = "big bang";
-    public String submission1;
-    public String submission2a;
-    public String submission2b;
-    public String submission3;
-    public String submission4a;
-    public String submission4b;
-    public String submission4c;
-    public String submission5;
-    public String submission6;
-    public String submission7;
-    public String submission8;
-    public String submission9a;
-    public String submission9b;
-    public String submission10;
+    public static String playerName = "";
+    public static String submission1 = "";
+    public static String submission2a = "";
+    public static String submission2b = "";
+    public static String submission3 = "";
+    public static String submission4a = "";
+    public static String submission4b = "";
+    public static String submission4c = "";
+    public static String submission5 = "";
+    public static String submission6 = "";
+    public static String submission7 = "";
+    public static String submission8 = "";
+    public static String submission9a = "";
+    public static String submission9b = "";
+    public static String submission10 = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("Player name ", playerName);
                 Intent myIntent = new Intent(MainActivity.this, ActivityQuestions1.class);
                 MainActivity.this.startActivity(myIntent);
-                Log.i("Content "," Main layout ");
             }
         }
     };
